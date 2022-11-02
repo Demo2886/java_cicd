@@ -25,7 +25,7 @@ pipeline {
         // Step 4
         stage('Push docker image') {
                 steps {
-                    withCredentials([string(credentialsId: 'Docker_hub_password', variable: 'Docker_PASS')]) {
+                    withCredentials([string(credentialsId: 'Docker_PASS', variable: 'Docker_PASS')]) {
                     sh "docker login -u jokercat2886 -p $Docker_PASS"
                     }
                     sh "docker push jokercat2886/test-jenkins:${BUILD_NUMBER}"
