@@ -64,21 +64,19 @@ pipeline {
         
         stage('approved') {
             steps {                
-				script {
-					Boolean userInput = input(id: 'Proceed1', message: 'Promote build?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
-						echo 'userInput: ' + userInput
+		script {
+		Boolean userInput = input(id: 'Proceed1', message: 'Promote build?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']]) 
+		echo 'userInput: ' + userInput
 
-					if(userInput == true) {
-						// do action
-					} else {
-						// not do action
-                    echo "Action was aborted."
-					}
-            
-                
-					}
-				}
-		}        
+		if(userInput == true) {
+			// do action
+		} else {
+			// not do action
+                echo "Action was aborted."
+		}
+			}
+		}
+	}        
         
         
         
